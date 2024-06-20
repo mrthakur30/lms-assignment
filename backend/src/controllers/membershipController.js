@@ -21,14 +21,6 @@ const updateMembership = async (req, res) => {
     res.json(membership);
 };
 
-const deleteMembership = async (req, res) => {
-    const membership = await Membership.findByIdAndDelete(req.params.id);
-    if (!membership) {
-        return res.status(404).json({ message: 'Membership not found' });
-    }
-    res.json({ message: 'Membership deleted successfully' });
-};
-
 const getMemberships = async (req, res, next) => {
     const memberships = await Membership.find();
     res.json(memberships);
@@ -45,7 +37,6 @@ const getMembershipById = async (req, res) => {
 export  {
     addMembership,
     updateMembership,
-    deleteMembership,
     getMemberships,
     getMembershipById,
 };
