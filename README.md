@@ -1,6 +1,6 @@
 
 <h2>🚀</h2>
-Deployement Link :https://github.com/mrthakur30/lms-assignment
+Deployement Link :https://main--remarkable-pie-00857a.netlify.app/
 <br />
 
 <h2>🛠️ Installation Steps:</h2>
