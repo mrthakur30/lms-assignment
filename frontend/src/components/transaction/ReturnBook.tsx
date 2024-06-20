@@ -57,12 +57,21 @@ const ReturnBook: React.FC = () => {
     e.preventDefault();
     try {
       await axios.post(`${BACKEND_URL}/api/transaction/return`, {
-          bookId : returnFormData.bookId,
-          userId : userId
+        bookId: returnFormData.bookId,
+        userId: userId
       });
-      toast.success("Book returned successfully")
+      toast.success("Book returned successfully");
+      
+      setReturnFormData({
+        transactionId: '',
+        bookId: '',
+        issueDate: '',
+        returnDate: new Date().toISOString().split('T')[0],
+        fine: 0,
+      });
+      setUserId('');
     } catch (error) {
-      toast.error('Error returning book')
+      toast.error('Error returning book');
       console.error('Error returning book:', error);
     }
   };

@@ -17,6 +17,9 @@ const CreateBookForm: React.FC = () => {
         category: category,
       });
       toast.success('Successfully created book');
+      setTitle('');
+      setAuthor('');
+      setCategory('');
     } catch (error) {
       console.log(error);
       toast.error('Error creating book');

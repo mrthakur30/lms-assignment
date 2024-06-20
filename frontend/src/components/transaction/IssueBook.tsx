@@ -64,15 +64,31 @@ const IssueBook: React.FC = () => {
     setUserId(e.target.value);
   };
 
+  const getDefaultDates = () => {
+    const today = new Date().toISOString().split('T')[0];
+    const returnDate = new Date();
+    returnDate.setDate(returnDate.getDate() + 15);
+    const formattedReturnDate = returnDate.toISOString().split('T')[0];
+  
+    return { issueDate: today, returnDate: formattedReturnDate };
+  };
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const bookId = books.find(book => book.title === issueFormData.bookName)?._id;
       const payload = { userId, bookId };
       await axios.post(`${BACKEND_URL}/api/transaction/issue`, payload);
-      toast.success('Book issued successfully')
+      toast.success('Book issued successfully');
+  
+      setIssueFormData({
+        bookName: '',
+        author: '',
+        ...getDefaultDates(), 
+      });
+      setUserId('');
     } catch (error) {
-      toast.error('Error issuing book')
+      toast.error('Error issuing book');
       console.error('Error issuing book:', error);
     }
   };
