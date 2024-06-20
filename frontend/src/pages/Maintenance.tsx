@@ -18,19 +18,19 @@ const MaintenancePage: React.FC = () => {
       <h2 className="text-2xl font-bold mb-6">Maintenance Page</h2>
       <div className="tabs mb-6">
         <button
-          className={`tab ${activeTab === 'users' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          className={`tab p-2 rounded-sm ${activeTab === 'users' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
           onClick={() => handleTabChange('users')}
         >
           Users
-        </button>
+        </button> 
         <button
-          className={`tab ${activeTab === 'memberships' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          className={`tab p-2 rounded-sm ${activeTab === 'memberships' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
           onClick={() => handleTabChange('memberships')}
         >
           Memberships
         </button>
         <button
-          className={`tab ${activeTab === 'books' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          className={`tab p-2 rounded-sm ${activeTab === 'books' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
           onClick={() => handleTabChange('books')}
         >
           Books

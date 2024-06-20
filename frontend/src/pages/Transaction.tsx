@@ -14,13 +14,13 @@ const TransactionPage: React.FC = () => {
       <h2 className="text-2xl font-bold mb-6">Transaction Page</h2>
       <div className="tabs mb-6">
         <button
-          className={`tab ${tab === 'issue' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          className={`tab p-2 rounded-sm ${tab === 'issue' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
           onClick={() => handleTabChange('issue')}
-        >
+        > 
           Issue Book
         </button>
         <button
-          className={`tab ${tab === 'return' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          className={`tab p-2 rounded-sm ${tab === 'return' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
           onClick={() => handleTabChange('return')}
         >
           Return Book
