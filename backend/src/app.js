@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
         message: "API is running"
     })
 })
-//routes import
+
 app.use('/api/auth', authRoutes);
 app.use('/api/book', bookRoutes);
 app.use('/api/membership', membershipRoutes);

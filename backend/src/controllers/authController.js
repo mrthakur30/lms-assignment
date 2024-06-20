@@ -19,7 +19,16 @@ const login = async (req, res) => {
     //     return res.status(401).json({ message: 'Invalid credentials' });
     // }
     const token = sign({ userId: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.json({ tokeN : token, userId : user._id });
+
+    const options = {
+        httpOnly: true,
+        secure: true
+    }
+
+    res
+    .status(200)
+    .cookie("accessToken", token , options)
+    .json({ token : token, userId : user._id });
 };
 
 export {

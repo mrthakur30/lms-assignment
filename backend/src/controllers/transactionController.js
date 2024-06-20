@@ -66,27 +66,11 @@ const getTransactionById = async (req, res, next) => {
     res.json(transaction);
 };
 
-const payFine = async (req, res) => {
-        const { transactionId } = req.params;
-        const transaction = await Transaction.findById(transactionId);
-        if (!transaction) {
-            throw new ApiError(404, 'Transaction not found');
-        }
 
-        if (transaction.finePaid) {
-            throw new ApiError(400, 'Fine is already paid for this transaction');
-        }
-
-        transaction.finePaid = true;
-        await transaction.save();
-
-        res.json({ message: 'Fine paid successfully' });
-    }
 
 export {
     issueBook,
     returnBook,
     getTransactions,
-    getTransactionById,
-    payFine
+    getTransactionById
 };
