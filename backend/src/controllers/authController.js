@@ -14,11 +14,11 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     const { username, password } = req.body;
-    const user = await User.findOne({ username });
+  //  const user = await User.findOne({ username });
     // if (!user || !await compare(password, user.password)) {
     //     return res.status(401).json({ message: 'Invalid credentials' });
     // }
-    const token = sign({ userId: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = sign({ userId: username, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     const options = {
         httpOnly: true,
@@ -28,7 +28,7 @@ const login = async (req, res) => {
     res
     .status(200)
     .cookie("accessToken", token , options)
-    .json({ token : token, userId : user._id });
+    .json({ token : token, userId : username });
 };
 
 export {
